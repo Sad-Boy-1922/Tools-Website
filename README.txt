@@ -5,7 +5,7 @@ Creator:Sad-Boy 1922
 Contact:
 -E mail:rayw1922@gmail.com
 -Instagram:Ngaray Dewantara
--Blog: http://sadboy1922official.blogspot.com
+-Blog: http://sad-boy1922.blogspot.com
 -Website: http://www.sadboy1922.dx.am
 
 #########################################
