@@ -21,6 +21,7 @@ Contact:
 -md5.zip=Md 5 Encryptor & Decryptor
 -Wp Brute.zip=Wordpress Bruterforce
 -Ddos.php=Ddos Online
+-jso.php=Javascript Overlay/Jso Creator
 -zh.php=Zone H Mass Notify
 -hash_gen.php=Hash Generator
 -sql_scan.php=Sql Injection Auto Dorker
